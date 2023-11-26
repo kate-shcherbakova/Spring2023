@@ -58,3 +58,37 @@ La fonctionnalité AOP a été mise en œuvre dans le projet spring-boot-sample-
 
 ---
 
+# Partie 3. Spring-data
+
+Le TP2 a été pris comme base et le framework Spring y a été implémenté. 
+Cette application a été conçue pour gérer les informations relatives aux professeurs et aux étudiants dans un environnement éducatif. Elle offre une API RESTful permettant de récupérer des détails sur les professeurs, les étudiants et les rendez-vous.
+
+## Technologies utilisées
+- Java
+- Spring Framework
+- JPA (Java Persistence API)
+- MySQL
+
+## Utilisation
+1. Assurez-vous d'avoir une instance MySQL exécutant le serveur sur le port par défaut (3306).
+2. Configurer les informations d'identification de la base de données dans le fichier `application.properties`.
+3. Lancer l'application en exécutant la classe principale `RdvApplication.java`.
+
+## Points clés
+- Trois entités principales sont gérées : Professeur, Étudiant et Rendez-vous.
+- Les controllers pour chaque entité sont exposées via des points de terminaison REST pour récupérer des données spécifiques.
+
+## Endpoints
+- **Professeurs** : `/professors`
+    - `GET /professors` : Récupère la liste de tous les professeurs.
+    - `GET /professors/{id}` : Récupère un professeur par son identifiant.
+
+- **Étudiants** : `/students`
+    - `GET /students` : Récupère la liste de tous les étudiants.
+    - `GET /students/{id}` : Récupère un étudiant par son identifiant.
+
+- **Rendez-vous** : `/rdvs`
+    - `GET /rdvs` : Récupère la liste de tous les rendez-vous.
+    - `GET /rdvs/{id}` : Récupère un rendez-vous par son identifiant.
+
+---
