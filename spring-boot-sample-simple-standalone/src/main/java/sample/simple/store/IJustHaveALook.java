@@ -1,6 +1,6 @@
 package sample.simple.store;
 
-public interface IJustHaveALook {
-    void test(String s);
+public interface IJustHaveALook extends IStore {
+    double getPrice(String articleReference);
+    boolean isAvailable(String articleReference, int quantity);
 }
-

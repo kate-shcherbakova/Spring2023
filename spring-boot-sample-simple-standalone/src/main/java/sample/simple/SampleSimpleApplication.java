@@ -27,10 +27,6 @@ import sample.simple.service.HelloWorldService;
 @SpringBootApplication
 public class SampleSimpleApplication implements CommandLineRunner {
 
-    // Simple example shows how a command line spring application can execute an
-    // injected bean service. Also demonstrates how you can use @Value to inject
-    // command line args ('--name=whatever') or application properties
-
     @Autowired
     private HelloWorldService helloWorldService;
 
@@ -38,7 +34,7 @@ public class SampleSimpleApplication implements CommandLineRunner {
     private IRun iRun;
 
     public void run(String... args) {
-        System.out.println(this.helloWorldService.getHelloMessage());
+//        System.out.println(this.helloWorldService.getHelloMessage());
         this.iRun.run();
     }
 
