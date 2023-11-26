@@ -40,3 +40,21 @@ Le projet utilise l'injection de dépendances de Spring pour connecter les diff�
 - L'annotation `@Autowired` est utilisée pour injecter les dépendances entre les différents composants, permettant ainsi à Spring de connecter automatiquement les différentes parties de l'application.
 
 ---
+
+# Partie 2: Spring AOP
+
+Cette partie du projet se concentre sur l'utilisation de Spring AOP (Aspect-Oriented Programming) pour la gestion de la sécurité et le suivi de l'exécution des méthodes. 
+L'objectif du projet est d'appliquer l'AOP pour deux fonctionnalités clés : la sécurité et le suivi des méthodes.
+
+## Structure des fichiers
+La fonctionnalité AOP a été mise en œuvre dans le projet spring-boot-sample-simple-standalone pour montrer un exemple d'utilisation avec les classes de la partie 1.
+- **AOPExecutionLogger**: Aspect pour le suivi de l'exécution des méthodes dans l'application.
+- **AOPSecurityAspect**: Aspect pour la gestion de la sécurité avec Spring AOP.
+- **SecurityCheck**: Annotation pour marquer les méthodes nécessitant une vérification de sécurité.
+
+## Utilisation
+- L'aspect `AOPExecutionLogger` enregistre les appels des méthodes publiques de tous les beans Spring de l'application.
+- L'aspect `AOPSecurityAspect` utilise l'annotation `@SecurityCheck` pour contrôler l'accès aux méthodes sécurisées dans l'application, comme illustré dans la classe `Bank`.
+
+---
+

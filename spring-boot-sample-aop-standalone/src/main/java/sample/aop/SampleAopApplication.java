@@ -26,12 +26,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SampleAopApplication implements CommandLineRunner {
 
-	// Simple example shows how an application can spy on itself with AOP
-
 	@Autowired
 	private HelloWorldService helloWorldService;
 
-	
 	public void run(String... args) {
 		System.out.println(this.helloWorldService.getHelloMessage());
 	}
