@@ -24,15 +24,15 @@ public class Client implements IRun {
     public void run() {
         System.out.println("Starting the application...");
 
-        fastLane.oneShotOrder("Article1", 5, "54 rue Sainte-Anne, Rennes", "123456789");
+        fastLane.oneShotOrder("Article1", 1, "54 rue Sainte-Anne, Rennes", "123456789");
 
         lane.addItemToCart("Article2", 3);
         lane.pay("10 rue Mirabeau, Rennes", "987654321");
 
         double price = justHaveALook.getPrice("Article3");
-        System.out.println("The price of \"Article3\": " + price);
+        System.out.println("The price of \"Article3\": " + price + ".");
         boolean available = justHaveALook.isAvailable("Article3", 12);
-        System.out.println("The \"Article3\" is " + available);
+        System.out.println("The \"Article3\" is " + (available ? "available" : "not available") + ".");
 
     }
 }

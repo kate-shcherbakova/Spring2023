@@ -33,7 +33,7 @@ public class Store implements ILane, IFastLane, IJustHaveALook {
     @Override
     public void oneShotOrder(String articleReference, int quantity, String address, String customerAccountNumber) {
         System.out.println("1-scenario order for " + quantity + " items of " + articleReference +
-                " to address: " + address + " for customer with account number: " + customerAccountNumber);
+                " to address: " + address + " for customer with account number: " + customerAccountNumber + ".");
         bank.transfer(customerAccountNumber, "111111111", quantity * getPrice(articleReference));
     }
 
@@ -44,6 +44,6 @@ public class Store implements ILane, IFastLane, IJustHaveALook {
 
     @Override
     public void pay(String address, String accountNumber) {
-        System.out.println("Payment completed to address: " + address + " for customer with account number: " + accountNumber);
+        System.out.println("2-scenario payment completed to address: " + address + " for customer with account number: " + accountNumber + ".");
     }
 }
