@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import rdv.spring.dao.RdvRepository;
 import rdv.spring.domain.Rdv;
-import rdv.spring.dao.RdvDao;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ import java.util.List;
 @RequestMapping("/rdvs")
 public class RdvResource {
 
-  private final RdvDao dao;
+  private final RdvRepository dao;
 
-  @Autowired
-  public RdvResource(RdvDao dao) {
+  public RdvResource(RdvRepository dao) {
     this.dao = dao;
   }
 
   @GetMapping("/{id}")
-  public Rdv getRdvById(@PathVariable Long id) {
-    return dao.findOne(id);
+  public Rdv getRdvById(@PathVariable Long id)
+  {
+      return dao.findById(id).orElseThrow();
   }
 
   @GetMapping

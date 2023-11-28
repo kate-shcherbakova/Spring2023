@@ -67,12 +67,13 @@ Cette application a été conçue pour gérer les informations relatives aux pro
 - Java
 - Spring Framework
 - JPA (Java Persistence API)
-- MySQL
+- HSQL
 
 ## Utilisation
-1. Assurez-vous d'avoir une instance MySQL exécutant le serveur sur le port par défaut (3306).
-2. Configurer les informations d'identification de la base de données dans le fichier `application.properties`.
-3. Lancer l'application en exécutant la classe principale `RdvApplication.java`.
+1. Exécutez le serveur `run-hsqldb-server.sh`, qui est nécessaire pour la base de données. (En cas de problème, utilisez un serveur avec TAA_TP1.`https://github.com/kate-shcherbakova/taa_tp1`.)
+2. Il est également souhaitable d'utiliser le fichier JpaTest du TP1 pour remplir la base de données avec des valeurs initiales.
+3. Configurer les informations d'identification de la base de données dans le fichier `application.properties`.
+4. Lancer l'application en exécutant la classe principale `RdvApplication.java`.
 
 ## Points clés
 - Trois entités principales sont gérées : Professeur, Étudiant et Rendez-vous.
@@ -82,6 +83,7 @@ Cette application a été conçue pour gérer les informations relatives aux pro
 - **Professeurs** : `/professors`
     - `GET /professors` : Récupère la liste de tous les professeurs.
     - `GET /professors/{id}` : Récupère un professeur par son identifiant.
+    - `POST /professors` : Ajoute un nouveau professeur à la base de données.
 
 - **Étudiants** : `/students`
     - `GET /students` : Récupère la liste de tous les étudiants.

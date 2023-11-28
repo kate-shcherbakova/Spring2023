@@ -1,13 +1,10 @@
 package rdv.spring.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rdv.spring.dao.DAO;
+import rdv.spring.dao.ProfRepository;
 import rdv.spring.domain.Prof;
-import rdv.spring.dao.ProfDao;
 
 import java.util.List;
 
@@ -15,22 +12,22 @@ import java.util.List;
 @RequestMapping("/professors")
 public class ProfResource {
 
-  private final ProfDao dao;
-  private final DAO testdao;
+  private final ProfRepository dao;
 
-  @Autowired
-  public ProfResource(ProfDao dao, DAO testdao) {
+  public ProfResource(ProfRepository dao) {
     this.dao = dao;
-    this.testdao = testdao;
   }
 
   @GetMapping("/{id}")
   public Prof getProfById(@PathVariable Long id) {
-    return dao.findOne(id);
+    return dao.findById(id).orElseThrow();
   }
 
   @GetMapping
   public List<Prof> getAllProfessors() {
     return dao.findAll();
   }
+
+  @PostMapping
+  public void creat(@RequestBody Prof prof){dao.save(prof);}
 }

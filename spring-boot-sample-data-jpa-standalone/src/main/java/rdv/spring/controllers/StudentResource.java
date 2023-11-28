@@ -3,8 +3,8 @@ package rdv.spring.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-        import rdv.spring.domain.Student;
-import rdv.spring.dao.StudentDao;
+import rdv.spring.dao.StudentRepository;
+import rdv.spring.domain.Student;
 
 import java.util.List;
 
@@ -12,16 +12,15 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentResource {
 
-  private final StudentDao dao;
+  private final StudentRepository dao;
 
-  @Autowired
-  public StudentResource(StudentDao dao) {
+  public StudentResource(StudentRepository dao) {
     this.dao = dao;
   }
 
   @GetMapping("/{id}")
   public Student getStudentById(@PathVariable Long id) {
-    return dao.findOne(id);
+    return dao.findById(id).orElseThrow();
   }
 
   @GetMapping

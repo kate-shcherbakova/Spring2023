@@ -1,0 +1,22 @@
+sudo apt-get update
+sudo service mysql start
+sudo service mysql status
+
+sudo mysql -u root
+
+CREATE USER 'tlc'@'localhost' IDENTIFIED BY 'tlc';
+CREATE DATABASE testspringdata;
+GRANT ALL PRIVILEGES ON testspringdata.* TO 'tlc'@'localhost';
+FLUSH PRIVILEGES;
+
+In project:
+spring.datasource.url=jdbc:mysql://localhost:3306/testspringdata?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+
+spring.datasource.username = tlc
+spring.datasource.password = tlc
+
+server.port=8081
+
+In browser: 
+http://localhost:8081/create?email=test@email.com&name=Kate
+http://localhost:8081/get-by-email/test@email.com
